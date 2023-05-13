@@ -4,12 +4,14 @@ import { Observable } from "rxjs";
 
 export const protobufPackage = "user";
 
-export interface EmptyMessage {
-}
-
 export interface CreateUserRequest {
   username: string;
   email: string;
+}
+
+export interface CreateUserResponse {
+  status: number;
+  error: string;
 }
 
 export interface GetUserRequest {
@@ -22,18 +24,22 @@ export interface GetUserResponse {
   id: number;
   username: string;
   email: string;
+  status: number;
+  error: string;
 }
 
 export const USER_PACKAGE_NAME = "user";
 
 export interface UserServiceClient {
-  createUser(request: CreateUserRequest): Observable<EmptyMessage>;
+  createUser(request: CreateUserRequest): Observable<CreateUserResponse>;
 
   getUser(request: GetUserRequest): Observable<GetUserResponse>;
 }
 
 export interface UserServiceController {
-  createUser(request: CreateUserRequest): Promise<EmptyMessage> | Observable<EmptyMessage> | EmptyMessage;
+  createUser(
+    request: CreateUserRequest,
+  ): Promise<CreateUserResponse> | Observable<CreateUserResponse> | CreateUserResponse;
 
   getUser(request: GetUserRequest): Promise<GetUserResponse> | Observable<GetUserResponse> | GetUserResponse;
 }

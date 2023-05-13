@@ -35,6 +35,7 @@
     "@nestjs/swagger": "^6.3.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "grpc-nest-common": "^1.0.7",
     "grpc-nest-proto": "git+https://github.com/YoungProducer/grpc-nest-proto.git",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
